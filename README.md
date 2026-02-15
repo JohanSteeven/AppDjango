@@ -28,7 +28,7 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 
 1.  **Clonar el repositorio** (o descargar el código fuente):
     ```bash
-    git clone <tu-repositorio>
+    git clone https://github.com/JohanSteeven/AppDjango
     cd AppDjango
     ```
 
