@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Tarea{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>{{ tarea.titulo }}</h3>
+    </div>
+    <div class="card-body">
+        <p><strong>Descripción:</strong> {{ tarea.descripcion }}</p>
+        <p><strong>Fecha de Creación:</strong> {{ tarea.fecha_creacion }}</p>
+        <p><strong>Fecha de Entrega:</strong> {{ tarea.fecha_entrega }}</p>
+        <p><strong>Prioridad:</strong>
+            {% if tarea.prioridad == 'Alta' %}
+            <span class="badge bg-danger">Alta</span>
+            {% elif tarea.prioridad == 'Media' %}
+            <span class="badge bg-warning text-dark">Media</span>
+            {% else %}
+            <span class="badge bg-success">Baja</span>
+            {% endif %}
+        </p>
+        <p><strong>Estado:</strong>
+            {% if tarea.completada %}
+            <span class="badge bg-success">Completada</span>
+            {% else %}
+            <span class="badge bg-secondary">Pendiente</span>
+            {% endif %}
+        </p>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'tarea-list' %}" class="btn btn-secondary">Volver</a>
+        <a href="{% url 'tarea-update' tarea.id %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'tarea-delete' tarea.id %}" class="btn btn-danger">Eliminar</a>
+    </div>
+</div>
+{% endblock %}
